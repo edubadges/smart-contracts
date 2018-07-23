@@ -1,0 +1,40 @@
+Type: Entity
+Version: 1.0
+Description: Create or (un)withdraw an entity.
+Template: {"receiver":{"type":"addr","desc":"Address van de faculteit/vakgroep/etc.","name":"Entiteit"},"name":{"type":"str","desc":"Naam van de faculteit/vakgroep/etc.","name":"Naam"},"allow":{"type":"bool","desc":"Toestaan of niet meer toestaan.","name":"Toegestaan"}}
+Init: YXdhaXQgcXVlcnkoIkNSRUFURSIsICJlbnRpdGllcyIsICIoZW50aXR5IFZBUkNIQVIoMzUpIFBSSU1BUlkgS0VZIE5PVCBOVUxMLCBpbnN0aXR1dGlvbiBWQVJDSEFSKDM1KSBOT1QgTlVMTCAiDQogICAgKyAiUkVGRVJFTkNFUyBpbnN0aXR1dGlvbnMoaW5zdGl0dXRpb24pLCBuYW1lIFZBUkNIQVIoMTI4KSBOT1QgTlVMTCwgYWxsb3dlZCBCT09MIE5PVCBOVUxMKTsiLCBbXSk7
+Code: Ly9DaGVjayBpZiB0aGUgaW5zdGl0dXRpb24gZXhpc3RzIGFuZCBpcyBhbGxvd2VkIHRvIGNyZWF0ZS91bndpdGhkcmF3IGVudGl0aWVzLg0KY29uc3QgaW5zdGl0dXRpb24gPSBhd2FpdCBxdWVyeSgiU0VMRUNUIiwgImluc3RpdHV0aW9ucyIsICJXSEVSRSBpbnN0aXR1dGlvbiA9ICQxOyIsIFtmcm9tXSk7DQppZiAoaW5zdGl0dXRpb24ucm93cy5sZW5ndGggPT09IDApIHsNCiAgICByZXR1cm4gIkluc3RpdHV0aW9uIGRvZXMgbm90IGV4aXN0cyBvciB1c2VyIGlzIG5vdCBhbiBpbnN0aXR1dGlvbi4iOw0KfQ0KaWYgKCFpbnN0aXR1dGlvbi5yb3dzWzBdLmFsbG93ZWQgJiYgcGF5bG9hZC5hbGxvdyA9PT0gdHJ1ZSkgew0KICAgIHJldHVybiAiSW5zdGl0dXRpb24gaXMgd2l0aGRyYXduLiI7DQp9DQovL0NyZWF0ZSBvciAodW4pd2l0aGRyYXcgdGhlIGVudGl0eS4NCmlmIChwYXlsb2FkLmFsbG93KSB7DQogICAgLy9XZSBvbmx5IGNhcmUgYWJvdXQgdGhlIG5hbWUgbGVuZ3RoIGlmIHdlIGFjdHVhbGx5IHVzZSBpdC4NCiAgICBpZiAocGF5bG9hZC5uYW1lLmxlbmd0aCA9PT0gMCB8fCBwYXlsb2FkLm5hbWUubGVuZ3RoID4gMTI4KSB7DQogICAgICAgIHJldHVybiAiSW52YWxpZCBuYW1lLiI7DQogICAgfQ0KICAgIGNvbnN0IGNoYW5nZWQgPSBhd2FpdCBxdWVyeSgiSU5TRVJUIiwgImVudGl0aWVzIiwgIihlbnRpdHksIGluc3RpdHV0aW9uLCBuYW1lLCBhbGxvd2VkKSBWQUxVRVMgKCQxLCAkMiwgJDMsIHRydWUpICINCiAgICAgICAgKyAiT04gQ09ORkxJQ1QgT04gQ09OU1RSQUlOVCBlbnRpdGllc19wa2V5IERPIFVQREFURSBTRVQgYWxsb3dlZCA9IHRydWUsIG5hbWUgPSAkMyBXSEVSRSBlbnRpdGllcy5pbnN0aXR1dGlvbiA9ICQyOyIsIFtwYXlsb2FkLnJlY2VpdmVyLCBmcm9tLCBwYXlsb2FkLm5hbWVdKTsNCiAgICAvL0lmIGl0IGFscmVhZHkgZXhpc3RzIGFuZCB0aGUgaW5zdGl0dXRpb24gd2FzIG5vdCB0aGUgb3duZXIuDQogICAgaWYgKGNoYW5nZWQucm93Q291bnQgPT09IDApIHsNCiAgICAgICAgcmV0dXJuICJJbnN0aXR1dGlvbiBpcyBub3QgdGhlIG93bmVyIG9mIGVudGl0eS4iOw0KICAgIH0NCn0NCmVsc2Ugew0KICAgIGNvbnN0IGNoYW5nZWQgPSBhd2FpdCBxdWVyeSgiVVBEQVRFIiwgImVudGl0aWVzIiwgIlNFVCBhbGxvd2VkID0gZmFsc2UgV0hFUkUgZW50aXR5ID0gJDEgQU5EIGluc3RpdHV0aW9uID0gJDI7IiwgW3BheWxvYWQucmVjZWl2ZXIsIGZyb21dKTsNCiAgICAvL0lmIGl0IGRvZXMgbm90IGV4aXN0IG9yIHRoZSBpbnN0aXR1dGlvbiB3YXMgbm90IHRoZSBvd25lci4NCiAgICBpZiAoY2hhbmdlZC5yb3dDb3VudCA9PT0gMCkgew0KICAgICAgICByZXR1cm4gIkVudGl0eSBkb2VzIG5vdCBleGlzdCBvciBpbnN0aXR1dGlvbiBpcyBub3QgdGhlIG93bmVyIG9mIGVudGl0eS4iOw0KICAgIH0NCn0NCnJldHVybiAiT0siOw==
+
+Init as text:
+await query("CREATE", "entities", "(entity VARCHAR(35) PRIMARY KEY NOT NULL, institution VARCHAR(35) NOT NULL "
+    + "REFERENCES institutions(institution), name VARCHAR(128) NOT NULL, allowed BOOL NOT NULL);", []);
+Code as text:
+//Check if the institution exists and is allowed to create/unwithdraw entities.
+const institution = await query("SELECT", "institutions", "WHERE institution = $1;", [from]);
+if (institution.rows.length === 0) {
+    return "Institution does not exists or user is not an institution.";
+}
+if (!institution.rows[0].allowed && payload.allow === true) {
+    return "Institution is withdrawn.";
+}
+//Create or (un)withdraw the entity.
+if (payload.allow) {
+    //We only care about the name length if we actually use it.
+    if (payload.name.length === 0 || payload.name.length > 128) {
+        return "Invalid name.";
+    }
+    const changed = await query("INSERT", "entities", "(entity, institution, name, allowed) VALUES ($1, $2, $3, true) "
+        + "ON CONFLICT ON CONSTRAINT entities_pkey DO UPDATE SET allowed = true, name = $3 WHERE entities.institution = $2;", [payload.receiver, from, payload.name]);
+    //If it already exists and the institution was not the owner.
+    if (changed.rowCount === 0) {
+        return "Institution is not the owner of entity.";
+    }
+}
+else {
+    const changed = await query("UPDATE", "entities", "SET allowed = false WHERE entity = $1 AND institution = $2;", [payload.receiver, from]);
+    //If it does not exist or the institution was not the owner.
+    if (changed.rowCount === 0) {
+        return "Entity does not exist or institution is not the owner of entity.";
+    }
+}
+return "OK";

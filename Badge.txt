@@ -1,0 +1,32 @@
+Type: Badge
+Version: 1.0
+Description: Endorse a badge.
+Template: {"badge":{"type":"str","desc":"ID van de te endorsen badge.","name":"Badge"}}
+Init: YXdhaXQgcXVlcnkoIkNSRUFURSIsICJlbmRvcnNlYmFkZ2VzIiwgIihiYWRnZSBWQVJDSEFSKDI1NikgTk9UIE5VTEwsICINCiAgICArICJlbnRpdHkgVkFSQ0hBUigzNSkgTk9UIE5VTEwgUkVGRVJFTkNFUyBlbnRpdGllcyhlbnRpdHkpLCBQUklNQVJZIEtFWSAoZW50aXR5LCBiYWRnZSkpOyIsIFtdKTs=
+Code: aWYgKHBheWxvYWQuYmFkZ2UubGVuZ3RoID09PSAwIHx8IHBheWxvYWQuYmFkZ2UubGVuZ3RoID4gMjU2KSB7DQogICAgcmV0dXJuICJJbnZhbGlkIGJhZGdlIGlkLiI7DQp9DQovL0NoZWNrIGlmIHRoZSBlbnRpdHkgZXhpc3RzIGFuZCBpcyBhbGxvd2VkIHRvIGNyZWF0ZS9lbmRvcnNlIGJhZGdlcy4NCmNvbnN0IGVudGl0eSA9IGF3YWl0IHF1ZXJ5KCJTRUxFQ1QiLCAiZW50aXRpZXMiLCAiV0hFUkUgZW50aXR5ID0gJDE7IiwgW2Zyb21dKTsNCmlmIChlbnRpdHkucm93cy5sZW5ndGggPT09IDApIHsNCiAgICByZXR1cm4gIkVudGl0eSBkb2VzIG5vdCBleGlzdHMgb3IgdXNlciBpcyBub3QgYW4gZW50aXR5LiI7DQp9DQppZiAoIWVudGl0eS5yb3dzWzBdLmFsbG93ZWQpIHsNCiAgICByZXR1cm4gIkVudGl0eSBpcyB3aXRoZHJhd24uIjsNCn0NCmVsc2Ugew0KICAgIC8vQ2hlY2sgaWYgdGhlIGluc3RpdHV0aW9uIGlzIG5vdCB3aXRoZHJhd24gKHdlIGFyZSBzdXJlIGl0IGV4aXN0cyBpZiB0aGUgZW50aXR5IGV4aXN0cykNCiAgICBjb25zdCBpbnN0aXR1dGlvbiA9IGF3YWl0IHF1ZXJ5KCJTRUxFQ1QiLCAiaW5zdGl0dXRpb25zIiwgIldIRVJFIGluc3RpdHV0aW9uID0gJDE7IiwgW2VudGl0eS5yb3dzWzBdLmluc3RpdHV0aW9uXSk7DQogICAgaWYgKCFpbnN0aXR1dGlvbi5yb3dzWzBdLmFsbG93ZWQpIHsNCiAgICAgICAgcmV0dXJuICJJbnN0aXR1dGlvbiBvZiBlbnRpdHkgaXMgd2l0aGRyYXduLiI7DQogICAgfQ0KfQ0KLy9DcmVhdGUgYW5kIGVuZG9yc2UgdGhlIGJhZGdlDQphd2FpdCBxdWVyeSgiSU5TRVJUIiwgImVuZG9yc2ViYWRnZXMiLCAiKGJhZGdlLCBlbnRpdHkpIFZBTFVFUyAoJDEsICQyKSBPTiBDT05GTElDVCBETyBOT1RISU5HOyIsIFtwYXlsb2FkLmJhZGdlLCBmcm9tXSk7DQpyZXR1cm4gIk9LIjs=
+
+Init as text:
+await query("CREATE", "endorsebadges", "(badge VARCHAR(256) NOT NULL, "
+    + "entity VARCHAR(35) NOT NULL REFERENCES entities(entity), PRIMARY KEY (entity, badge));", []);
+Code as text:
+if (payload.badge.length === 0 || payload.badge.length > 256) {
+    return "Invalid badge id.";
+}
+//Check if the entity exists and is allowed to create/endorse badges.
+const entity = await query("SELECT", "entities", "WHERE entity = $1;", [from]);
+if (entity.rows.length === 0) {
+    return "Entity does not exists or user is not an entity.";
+}
+if (!entity.rows[0].allowed) {
+    return "Entity is withdrawn.";
+}
+else {
+    //Check if the institution is not withdrawn (we are sure it exists if the entity exists)
+    const institution = await query("SELECT", "institutions", "WHERE institution = $1;", [entity.rows[0].institution]);
+    if (!institution.rows[0].allowed) {
+        return "Institution of entity is withdrawn.";
+    }
+}
+//Create and endorse the badge
+await query("INSERT", "endorsebadges", "(badge, entity) VALUES ($1, $2) ON CONFLICT DO NOTHING;", [payload.badge, from]);
+return "OK";

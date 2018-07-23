@@ -1,0 +1,35 @@
+Type: Metadata
+Version: 1.0
+Description: Add or overwrite the metadate of a badge class.
+Template: {"badgeClass":{"type":"str","desc":"De badge klasse om metadata aan toe te voegen.","name":"Badge klasse"},"metadata":{"type":"json","desc":"De metadata in json formaat.","name":"Metadata"}}
+Init: 
+Code: aWYgKHBheWxvYWQuYmFkZ2VDbGFzcy5sZW5ndGggPT09IDAgfHwgcGF5bG9hZC5iYWRnZUNsYXNzLmxlbmd0aCA+IDI1Nikgew0KICAgIHJldHVybiAiSW52YWxpZCBiYWRnZSBjbGFzcyBpZC4iOw0KfQ0KLy9DaGVjayBpZiB0aGUgZW50aXR5IGV4aXN0cyBhbmQgaXMgYWxsb3dlZCB0byBjcmVhdGUvZW5kb3JzZSBiYWRnZSBjbGFzc2VzLg0KY29uc3QgZW50aXR5ID0gYXdhaXQgcXVlcnkoIlNFTEVDVCIsICJlbnRpdGllcyIsICJXSEVSRSBlbnRpdHkgPSAkMTsiLCBbZnJvbV0pOw0KaWYgKGVudGl0eS5yb3dzLmxlbmd0aCA9PT0gMCkgew0KICAgIHJldHVybiAiRW50aXR5IGRvZXMgbm90IGV4aXN0cyBvciB1c2VyIGlzIG5vdCBhbiBlbnRpdHkuIjsNCn0NCmlmICghZW50aXR5LnJvd3NbMF0uYWxsb3dlZCkgew0KICAgIHJldHVybiAiRW50aXR5IGlzIHdpdGhkcmF3bi4iOw0KfQ0KZWxzZSB7DQogICAgLy9DaGVjayBpZiB0aGUgaW5zdGl0dXRpb24gaXMgbm90IHdpdGhkcmF3biAod2UgYXJlIHN1cmUgaXQgZXhpc3RzIGlmIHRoZSBlbnRpdHkgZXhpc3RzKQ0KICAgIGNvbnN0IGluc3RpdHV0aW9uID0gYXdhaXQgcXVlcnkoIlNFTEVDVCIsICJpbnN0aXR1dGlvbnMiLCAiV0hFUkUgaW5zdGl0dXRpb24gPSAkMTsiLCBbZW50aXR5LnJvd3NbMF0uaW5zdGl0dXRpb25dKTsNCiAgICBpZiAoIWluc3RpdHV0aW9uLnJvd3NbMF0uYWxsb3dlZCkgew0KICAgICAgICByZXR1cm4gIkluc3RpdHV0aW9uIG9mIGVudGl0eSBpcyB3aXRoZHJhd24uIjsNCiAgICB9DQp9DQovL0FkZCB0aGUgbWV0YWRhdGENCmNvbnN0IGNoYW5nZWQgPSBhd2FpdCBxdWVyeSgiVVBEQVRFIiwgImJhZGdlY2xhc3NlcyIsICJTRVQgbWV0YWRhdGEgPSAkMyBXSEVSRSBjbGFzcyA9ICQxIEFORCBmaXJzdF9lbmRvcnNlciA9ICQyOyIsIFtwYXlsb2FkLmJhZGdlQ2xhc3MsIGZyb20sIHBheWxvYWQubWV0YWRhdGFdKTsNCi8vSWYgdGhlIGJhZGdlIGNsYXNzIGRpZCBub3QgZXhpc3Qgb3IgeW91IGFyZSBub3QgdGhlIGZpcnN0IGVuZG9yc2VyLg0KaWYgKGNoYW5nZWQucm93Q291bnQgPT09IDApIHsNCiAgICByZXR1cm4gIkJhZGdlIGNsYXNzIGRvZXMgbm90IGV4aXN0IG9yIHlvdSBhcmUgbm90IHRoZSBjcmVhdG9yLiI7DQp9DQpyZXR1cm4gIk9LIjs=
+
+Init as text:
+
+Code as text:
+if (payload.badgeClass.length === 0 || payload.badgeClass.length > 256) {
+    return "Invalid badge class id.";
+}
+//Check if the entity exists and is allowed to create/endorse badge classes.
+const entity = await query("SELECT", "entities", "WHERE entity = $1;", [from]);
+if (entity.rows.length === 0) {
+    return "Entity does not exists or user is not an entity.";
+}
+if (!entity.rows[0].allowed) {
+    return "Entity is withdrawn.";
+}
+else {
+    //Check if the institution is not withdrawn (we are sure it exists if the entity exists)
+    const institution = await query("SELECT", "institutions", "WHERE institution = $1;", [entity.rows[0].institution]);
+    if (!institution.rows[0].allowed) {
+        return "Institution of entity is withdrawn.";
+    }
+}
+//Add the metadata
+const changed = await query("UPDATE", "badgeclasses", "SET metadata = $3 WHERE class = $1 AND first_endorser = $2;", [payload.badgeClass, from, payload.metadata]);
+//If the badge class did not exist or you are not the first endorser.
+if (changed.rowCount === 0) {
+    return "Badge class does not exist or you are not the creator.";
+}
+return "OK";

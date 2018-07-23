@@ -1,0 +1,32 @@
+Type: Institutution
+Version: 1.0
+Description: Create or (un)withdraw an institution.
+Template: {"receiver":{"type":"addr","desc":"Address van de onderwijsinstelling.","name":"Onderwijsinstelling"},"name":{"type":"str","desc":"Naam van onderwijsinstelling.","name":"Naam"},"allow":{"type":"bool","desc":"Toestaan of niet meer toestaan.","name":"Toegestaan"}}
+Init: YXdhaXQgcXVlcnkoIkNSRUFURSIsICJpbnN0aXR1dGlvbnMiLCAiKGluc3RpdHV0aW9uIFZBUkNIQVIoMzUpIFBSSU1BUlkgS0VZIE5PVCBOVUxMLCAiDQogICAgKyAibmFtZSBWQVJDSEFSKDEyOCkgTk9UIE5VTEwsIGFsbG93ZWQgQk9PTCBOT1QgTlVMTCk7IiwgW10pOw==
+Code: Ly9Pbmx5IHN1cmYgaXMgYWxsb3dlZCB0byBjcmVhdGUgYW5kIHdpdGhkcmF3IGluc3RpdHV0aW9ucw0KaWYgKGZyb20gIT09IHByb2Nlc3Nvcikgew0KICAgIHJldHVybiAiT25seSBTVVJGIGlzIGFsbG93ZWQgdG8gY3JlYXRlLyh1bil3aXRoZHJhdyBpbnN0aXR1dGlvbnMuIjsNCn0NCmlmIChwYXlsb2FkLmFsbG93KSB7DQogICAgLy9XZSBvbmx5IGNhcmUgYWJvdXQgdGhlIG5hbWUgbGVuZ3RoIGlmIHdlIGFjdHVhbGx5IHVzZSBpdC4NCiAgICBpZiAocGF5bG9hZC5uYW1lLmxlbmd0aCA9PT0gMCB8fCBwYXlsb2FkLm5hbWUubGVuZ3RoID4gMTI4KSB7DQogICAgICAgIHJldHVybiAiSW52YWxpZCBuYW1lLiI7DQogICAgfQ0KICAgIC8vQ3JlYXRlIG9yIHVud2l0aGRyYXcgaW5zdHV0aXRpb24NCiAgICBhd2FpdCBxdWVyeSgiSU5TRVJUIiwgImluc3RpdHV0aW9ucyIsICIoaW5zdGl0dXRpb24sIG5hbWUsIGFsbG93ZWQpIFZBTFVFUyAoJDEsICQyLCB0cnVlKSBPTiBDT05GTElDVCAiDQogICAgICAgICsgIk9OIENPTlNUUkFJTlQgaW5zdGl0dXRpb25zX3BrZXkgRE8gVVBEQVRFIFNFVCBuYW1lID0gJDIsIGFsbG93ZWQgPSB0cnVlOyIsIFtwYXlsb2FkLnJlY2VpdmVyLCBwYXlsb2FkLm5hbWVdKTsNCn0NCmVsc2Ugew0KICAgIC8vV2l0aGRyYXcgYW4gaW5zdGl0dXRpb24NCiAgICBjb25zdCBjaGFuZ2VkID0gYXdhaXQgcXVlcnkoIlVQREFURSIsICJpbnN0aXR1dGlvbnMiLCAiU0VUIGFsbG93ZWQgPSBmYWxzZSBXSEVSRSBpbnN0aXR1dGlvbiA9ICQxOyIsIFtwYXlsb2FkLnJlY2VpdmVyXSk7DQogICAgaWYgKGNoYW5nZWQucm93Q291bnQgPT09IDApIHsNCiAgICAgICAgcmV0dXJuICJJbnN0aXR1dGlvbiBkb2VzIG5vdCBleGlzdC4iOw0KICAgIH0NCn0NCnJldHVybiAiT0siOw==
+
+Init as text:
+await query("CREATE", "institutions", "(institution VARCHAR(35) PRIMARY KEY NOT NULL, "
+    + "name VARCHAR(128) NOT NULL, allowed BOOL NOT NULL);", []);
+Code as text:
+//Only surf is allowed to create and withdraw institutions
+if (from !== processor) {
+    return "Only SURF is allowed to create/(un)withdraw institutions.";
+}
+if (payload.allow) {
+    //We only care about the name length if we actually use it.
+    if (payload.name.length === 0 || payload.name.length > 128) {
+        return "Invalid name.";
+    }
+    //Create or unwithdraw instutition
+    await query("INSERT", "institutions", "(institution, name, allowed) VALUES ($1, $2, true) ON CONFLICT "
+        + "ON CONSTRAINT institutions_pkey DO UPDATE SET name = $2, allowed = true;", [payload.receiver, payload.name]);
+}
+else {
+    //Withdraw an institution
+    const changed = await query("UPDATE", "institutions", "SET allowed = false WHERE institution = $1;", [payload.receiver]);
+    if (changed.rowCount === 0) {
+        return "Institution does not exist.";
+    }
+}
+return "OK";
