@@ -1,0 +1,68 @@
+Type: Endorse Badge Class
+Version: 2.0
+Description: (Un)endorse a badge class.
+Template: {"badgeClass":{"type":"str","desc":"ID van de badge klasse.","name":"Badge klasse"},"endorsementComment":{"type":"str","desc":"Comment over deze endorsement.","name":"Comment"},"endorse":{"type":"bool","desc":"Endorse deze badge klasse of niet meer.","name":"Endorse"}}
+Init: YXdhaXQgcXVlcnkoIkNSRUFURSIsICJlbmRvcnNlbWVudGNsYXNzZXMiLCAiKGlkIEJJR0lOVCBQUklNQVJZIEtFWSwgIiArDQogICAgImVudGl0eSBWQVJDSEFSKDM1KSBOT1QgTlVMTCBSRUZFUkVOQ0VTIGVudGl0aWVzKGVudGl0eSksIGNsYXNzIFZBUkNIQVIoMjU2KSBOT1QgTlVMTCwgIiArDQogICAgImpzb24gSlNPTiBOT1QgTlVMTCwgaXNzdWVkX29uIEJJR0lOVCBOT1QgTlVMTCwgcmV2b2tlZCBCSUdJTlQpOyIsIFtdKTsNCmF3YWl0IHF1ZXJ5KCJJTkRFWCIsICJlbmRvcnNlbWVudGNsYXNzZXMiLCAiKGNsYXNzKTsiLCBbImVuZG9yc2VtZW50Y2xhc3Nlc19jbGFzc19pbmRleCJdKTs=
+Code: aWYgKHBheWxvYWQuYmFkZ2VDbGFzcy5sZW5ndGggPT09IDAgfHwgcGF5bG9hZC5iYWRnZUNsYXNzLmxlbmd0aCA+IDI1Nikgew0KICAgIHJldHVybiAiSW52YWxpZCBiYWRnZSBjbGFzcyBpZC4iOw0KfQ0KLy9JZiB3ZSBhcmUgcmV2b2tpbmcgYW4gZW5kb3JzZW1lbnQgZG8gbm90IGRvIGFsbCB0aGUgZXh0cmEgY2hlY2tzLg0KaWYgKCFwYXlsb2FkLmVuZG9yc2UpIHsNCiAgICBjb25zdCByZXZva2VkID0gYXdhaXQgcXVlcnkoIlVQREFURSIsICJlbmRvcnNlbWVudGNsYXNzZXMiLCAiU0VUIHJldm9rZWQgPSAkMyBXSEVSRSBjbGFzcyA9ICQxIEFORCBlbnRpdHkgPSAkMiBBTkQgcmV2b2tlZCBJUyBOVUxMOyIsIFtwYXlsb2FkLmJhZGdlQ2xhc3MsIGZyb20sIHByZXZpb3VzQmxvY2tUaW1lc3RhbXBdKTsNCiAgICBpZiAocmV2b2tlZC5yb3dDb3VudCA9PT0gMCkgew0KICAgICAgICByZXR1cm4gIk5vIHVucmV2b2tlZCBlbmRvcnNlbWVudCBmb3IgdGhpcyBiYWRnZWNsYXNzIGJ5IHRoaXMgdXNlciBleGlzdHMuIjsNCiAgICB9DQogICAgcmV0dXJuICJPSyI7DQp9DQovL0NoZWNrIGlmIHRoZSBlbnRpdHkgZXhpc3RzDQpjb25zdCBlbnRpdHkgPSAoYXdhaXQgcXVlcnkoIlNFTEVDVCIsICJlbnRpdGllcyIsICJXSEVSRSBlbnRpdHkgPSAkMTsiLCBbZnJvbV0pKS5yb3dzWzBdOw0KaWYgKGVudGl0eSA9PT0gdW5kZWZpbmVkKSB7DQogICAgcmV0dXJuICJFbnRpdHkgZG9lcyBub3QgZXhpc3RzIG9yIHVzZXIgaXMgbm90IGFuIGVudGl0eS4iOw0KfQ0KaWYgKGVudGl0eS5yZXZva2VkICE9PSBudWxsKSB7DQogICAgcmV0dXJuICJFbnRpdHkgaXMgd2l0aGRyYXduLiI7DQp9DQovL0NoZWNrIGlmIHRoZSBpbnN0aXR1dGlvbiBpcyBub3Qgd2l0aGRyYXduICh3ZSBhcmUgc3VyZSBpdCBleGlzdHMgaWYgdGhlIGVudGl0eSBleGlzdHMpDQpjb25zdCBpbnN0aXR1dGlvbiA9IChhd2FpdCBxdWVyeSgiU0VMRUNUIiwgImluc3RpdHV0aW9ucyIsICJXSEVSRSBpbnN0aXR1dGlvbiA9ICQxOyIsIFtlbnRpdHkuaW5zdGl0dXRpb25dKSkucm93c1swXTsNCmlmIChpbnN0aXR1dGlvbi5yZXZva2VkICE9PSBudWxsKSB7DQogICAgcmV0dXJuICJJbnN0aXR1dGlvbiBvZiBlbnRpdHkgaXMgd2l0aGRyYXduLiI7DQp9DQovL0NoZWNrIGlmIHRoZXJlIGlzIGFuIGVuZG9yc2VtZW50IGFscmVhZHkNCmNvbnN0IG9sZEVuZG9yc2VtZW50ID0gKGF3YWl0IHF1ZXJ5KCJTRUxFQ1QiLCAiZW5kb3JzZW1lbnRjbGFzc2VzIiwgIldIRVJFIGNsYXNzID0gJDEgQU5EIGVudGl0eSA9ICQyIEFORCByZXZva2VkIElTIE5VTEw7IiwgW3BheWxvYWQuYmFkZ2VDbGFzcywgZnJvbV0pKS5yb3dzWzBdOw0KaWYgKG9sZEVuZG9yc2VtZW50ICE9PSB1bmRlZmluZWQpIHsNCiAgICByZXR1cm4gIkJhZGdlIGFscmVhZHkgZW5kb3JzZWQgYnkgZW50aXR5LCB0byB1cGRhdGUgcmV2b2tlIGN1cnJlbnQgZW5kb3JzZW1lbnQgYW5kIGNyZWF0ZSBhIG5ldyBvbmUuIjsNCn0NCi8vVGhlIHRoZSB1cmwgb24gd2hpY2ggdGhlIGVuZG9yc2VtZW50IG5lZWRzIHRvIGJlIG1hZGUgYXZhaWxhYmxlDQpjb25zdCB1cmwgPSAoYXdhaXQgcXVlcnkoIlNFTEVDVCIsICJzZXR0aW5ncyIsICJXSEVSRSBrZXkgPSAndXJsJzsiLCBbXSkpLnJvd3NbMF07DQppZiAodXJsID09PSB1bmRlZmluZWQpIHsNCiAgICByZXR1cm4gIlVSTCBub3Qgc2V0IGJ5IFN1cmYuIjsNCn0NCi8vQXNzaWduIGFuIHVuaXF1ZSBpZCB0byB0aGUgZW5kb3JzZW1lbnQgKHdlIGF2b2lkIHVzaW5nIFNFUklBTCBhcyBpdCBkb2Vzbid0IHdvcmsgaW4gY29tYmluYXRpb24gd2l0aCBST0xMQkFDSykNCmNvbnN0IG9sZElkID0gKGF3YWl0IHF1ZXJ5KCJTRUxFQ1QiLCAiZW5kb3JzZW1lbnRjbGFzc2VzIiwgIk9SREVSIEJZIGlkIERFU0MgTElNSVQgMTsiLCBbXSkpLnJvd3NbMF07DQpjb25zdCBuZXdJZCA9IG9sZElkID09PSB1bmRlZmluZWQgPyAwIDogb2xkSWQuaWQgKyAxOw0KLy9DcmVhdGUgdGhlIGVuZG9yc2VtZW50IGpzb24NCmNvbnN0IGVuZG9yc2VtZW50ID0gew0KICAgICJAY29udGV4dCI6ICJodHRwczovL3czaWQub3JnL29wZW5iYWRnZXMvdjIiLA0KICAgICJ0eXBlIjogIkVuZG9yc2VtZW50IiwNCiAgICAiaWQiOiBgJHt1cmwudmFsdWV9ZW5kb3JzZW1lbnRiYWRnZWNsYXNzPyR7bmV3SWR9YCwNCiAgICAiaXNzdWVyIjogaW5zdGl0dXRpb24uaXJpLA0KICAgICJjbGFpbSI6IHsNCiAgICAgICAgaWQ6IHBheWxvYWQuYmFkZ2VDbGFzcywNCiAgICAgICAgZW5kb3JzZW1lbnRDb21tZW50OiBwYXlsb2FkLmVuZG9yc2VtZW50Q29tbWVudA0KICAgIH0sDQogICAgImlzc3VlZE9uIjogbmV3IERhdGUocHJldmlvdXNCbG9ja1RpbWVzdGFtcCkudG9JU09TdHJpbmcoKS5zcGxpdCgiLiIpWzBdICsgIloiLA0KICAgICJ2ZXJpZmljYXRpb24iOiB7DQogICAgICAgIHR5cGU6ICJob3N0ZWQiDQogICAgfQ0KfTsNCi8vQ3JlYXRlIHRoZSBlbmRvcnNlbWVudCBmb3IgdGhlIGJhZGdlIGNsYXNzDQphd2FpdCBxdWVyeSgiSU5TRVJUIiwgImVuZG9yc2VtZW50Y2xhc3NlcyIsICIoaWQsIGNsYXNzLCBlbnRpdHksIGpzb24sIGlzc3VlZF9vbikgVkFMVUVTICgkMSwgJDIsICQzLCAkNCwgJDUpOyIsIFtuZXdJZCwgcGF5bG9hZC5iYWRnZUNsYXNzLCBmcm9tLCBKU09OLnN0cmluZ2lmeShlbmRvcnNlbWVudCksIHByZXZpb3VzQmxvY2tUaW1lc3RhbXBdKTsNCnJldHVybiAiT0siOw==
+
+Init as text:
+await query("CREATE", "endorsementclasses", "(id BIGINT PRIMARY KEY, " +
+    "entity VARCHAR(35) NOT NULL REFERENCES entities(entity), class VARCHAR(256) NOT NULL, " +
+    "json JSON NOT NULL, issued_on BIGINT NOT NULL, revoked BIGINT);", []);
+await query("INDEX", "endorsementclasses", "(class);", ["endorsementclasses_class_index"]);
+Code as text:
+if (payload.badgeClass.length === 0 || payload.badgeClass.length > 256) {
+    return "Invalid badge class id.";
+}
+//If we are revoking an endorsement do not do all the extra checks.
+if (!payload.endorse) {
+    const revoked = await query("UPDATE", "endorsementclasses", "SET revoked = $3 WHERE class = $1 AND entity = $2 AND revoked IS NULL;", [payload.badgeClass, from, previousBlockTimestamp]);
+    if (revoked.rowCount === 0) {
+        return "No unrevoked endorsement for this badgeclass by this user exists.";
+    }
+    return "OK";
+}
+//Check if the entity exists
+const entity = (await query("SELECT", "entities", "WHERE entity = $1;", [from])).rows[0];
+if (entity === undefined) {
+    return "Entity does not exists or user is not an entity.";
+}
+if (entity.revoked !== null) {
+    return "Entity is withdrawn.";
+}
+//Check if the institution is not withdrawn (we are sure it exists if the entity exists)
+const institution = (await query("SELECT", "institutions", "WHERE institution = $1;", [entity.institution])).rows[0];
+if (institution.revoked !== null) {
+    return "Institution of entity is withdrawn.";
+}
+//Check if there is an endorsement already
+const oldEndorsement = (await query("SELECT", "endorsementclasses", "WHERE class = $1 AND entity = $2 AND revoked IS NULL;", [payload.badgeClass, from])).rows[0];
+if (oldEndorsement !== undefined) {
+    return "Badge already endorsed by entity, to update revoke current endorsement and create a new one.";
+}
+//The the url on which the endorsement needs to be made available
+const url = (await query("SELECT", "settings", "WHERE key = 'url';", [])).rows[0];
+if (url === undefined) {
+    return "URL not set by Surf.";
+}
+//Assign an unique id to the endorsement (we avoid using SERIAL as it doesn't work in combination with ROLLBACK)
+const oldId = (await query("SELECT", "endorsementclasses", "ORDER BY id DESC LIMIT 1;", [])).rows[0];
+const newId = oldId === undefined ? 0 : oldId.id + 1;
+//Create the endorsement json
+const endorsement = {
+    "@context": "https://w3id.org/openbadges/v2",
+    "type": "Endorsement",
+    "id": `${url.value}endorsementbadgeclass?${newId}`,
+    "issuer": institution.iri,
+    "claim": {
+        id: payload.badgeClass,
+        endorsementComment: payload.endorsementComment
+    },
+    "issuedOn": new Date(previousBlockTimestamp).toISOString().split(".")[0] + "Z",
+    "verification": {
+        type: "hosted"
+    }
+};
+//Create the endorsement for the badge class
+await query("INSERT", "endorsementclasses", "(id, class, entity, json, issued_on) VALUES ($1, $2, $3, $4, $5);", [newId, payload.badgeClass, from, JSON.stringify(endorsement), previousBlockTimestamp]);
+return "OK";

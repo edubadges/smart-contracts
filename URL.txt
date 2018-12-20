@@ -1,0 +1,21 @@
+Type: URL
+Version: 1.0
+Description: Set the url where the server is available.
+Template: {"url":{"type":"str","desc":"Address van de onderwijsinstelling.","name":"URL"}}
+Init: YXdhaXQgcXVlcnkoIkNSRUFURSIsICJzZXR0aW5ncyIsICIoa2V5IFZBUkNIQVIoMzIpIFBSSU1BUlkgS0VZLCB2YWx1ZSBWQVJDSEFSKDI1NikgTk9UIE5VTEwpOyIsIFtdKTs=
+Code: Ly9Pbmx5IHN1cmYgaXMgYWxsb3dlZCB0byBzZXQgdGhlIFVSTA0KaWYgKGZyb20gIT09IHByb2Nlc3Nvcikgew0KICAgIHJldHVybiAiT25seSBTVVJGIGlzIGFsbG93ZWQgdG8gc2V0IHRoZSBVUkwuIjsNCn0NCmlmIChwYXlsb2FkLnVybC5sZW5ndGggPT09IDAgfHwgcGF5bG9hZC51cmwubGVuZ3RoID4gMjU2KSB7DQogICAgcmV0dXJuICJJbnZhbGlkIHVybC4iOw0KfQ0KLy9BZGQgKG9yIHVwZGF0ZSkgdGhlIHVybA0KYXdhaXQgcXVlcnkoIklOU0VSVCIsICJzZXR0aW5ncyIsICIoa2V5LCB2YWx1ZSkgVkFMVUVTICgndXJsJywgJDEpIE9OIENPTkZMSUNUICINCiAgICArICJPTiBDT05TVFJBSU5UIHNldHRpbmdzX3BrZXkgRE8gVVBEQVRFIFNFVCB2YWx1ZSA9ICQxOyIsIFtwYXlsb2FkLnVybF0pOw0KcmV0dXJuICJPSyI7
+
+Init as text:
+await query("CREATE", "settings", "(key VARCHAR(32) PRIMARY KEY, value VARCHAR(256) NOT NULL);", []);
+Code as text:
+//Only surf is allowed to set the URL
+if (from !== processor) {
+    return "Only SURF is allowed to set the URL.";
+}
+if (payload.url.length === 0 || payload.url.length > 256) {
+    return "Invalid url.";
+}
+//Add (or update) the url
+await query("INSERT", "settings", "(key, value) VALUES ('url', $1) ON CONFLICT "
+    + "ON CONSTRAINT settings_pkey DO UPDATE SET value = $1;", [payload.url]);
+return "OK";

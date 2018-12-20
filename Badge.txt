@@ -1,32 +1,68 @@
 Type: Badge
-Version: 1.0
-Description: Endorse a badge.
-Template: {"badge":{"type":"str","desc":"ID van de te endorsen badge.","name":"Badge"}}
-Init: YXdhaXQgcXVlcnkoIkNSRUFURSIsICJlbmRvcnNlYmFkZ2VzIiwgIihiYWRnZSBWQVJDSEFSKDI1NikgTk9UIE5VTEwsICINCiAgICArICJlbnRpdHkgVkFSQ0hBUigzNSkgTk9UIE5VTEwgUkVGRVJFTkNFUyBlbnRpdGllcyhlbnRpdHkpLCBQUklNQVJZIEtFWSAoZW50aXR5LCBiYWRnZSkpOyIsIFtdKTs=
-Code: aWYgKHBheWxvYWQuYmFkZ2UubGVuZ3RoID09PSAwIHx8IHBheWxvYWQuYmFkZ2UubGVuZ3RoID4gMjU2KSB7DQogICAgcmV0dXJuICJJbnZhbGlkIGJhZGdlIGlkLiI7DQp9DQovL0NoZWNrIGlmIHRoZSBlbnRpdHkgZXhpc3RzIGFuZCBpcyBhbGxvd2VkIHRvIGNyZWF0ZS9lbmRvcnNlIGJhZGdlcy4NCmNvbnN0IGVudGl0eSA9IGF3YWl0IHF1ZXJ5KCJTRUxFQ1QiLCAiZW50aXRpZXMiLCAiV0hFUkUgZW50aXR5ID0gJDE7IiwgW2Zyb21dKTsNCmlmIChlbnRpdHkucm93cy5sZW5ndGggPT09IDApIHsNCiAgICByZXR1cm4gIkVudGl0eSBkb2VzIG5vdCBleGlzdHMgb3IgdXNlciBpcyBub3QgYW4gZW50aXR5LiI7DQp9DQppZiAoIWVudGl0eS5yb3dzWzBdLmFsbG93ZWQpIHsNCiAgICByZXR1cm4gIkVudGl0eSBpcyB3aXRoZHJhd24uIjsNCn0NCmVsc2Ugew0KICAgIC8vQ2hlY2sgaWYgdGhlIGluc3RpdHV0aW9uIGlzIG5vdCB3aXRoZHJhd24gKHdlIGFyZSBzdXJlIGl0IGV4aXN0cyBpZiB0aGUgZW50aXR5IGV4aXN0cykNCiAgICBjb25zdCBpbnN0aXR1dGlvbiA9IGF3YWl0IHF1ZXJ5KCJTRUxFQ1QiLCAiaW5zdGl0dXRpb25zIiwgIldIRVJFIGluc3RpdHV0aW9uID0gJDE7IiwgW2VudGl0eS5yb3dzWzBdLmluc3RpdHV0aW9uXSk7DQogICAgaWYgKCFpbnN0aXR1dGlvbi5yb3dzWzBdLmFsbG93ZWQpIHsNCiAgICAgICAgcmV0dXJuICJJbnN0aXR1dGlvbiBvZiBlbnRpdHkgaXMgd2l0aGRyYXduLiI7DQogICAgfQ0KfQ0KLy9DcmVhdGUgYW5kIGVuZG9yc2UgdGhlIGJhZGdlDQphd2FpdCBxdWVyeSgiSU5TRVJUIiwgImVuZG9yc2ViYWRnZXMiLCAiKGJhZGdlLCBlbnRpdHkpIFZBTFVFUyAoJDEsICQyKSBPTiBDT05GTElDVCBETyBOT1RISU5HOyIsIFtwYXlsb2FkLmJhZGdlLCBmcm9tXSk7DQpyZXR1cm4gIk9LIjs=
+Version: 2.0
+Description: Add a badge.
+Template: {"badge":{"type":"str","desc":"De (ondertekende) badge om op te slaan.","name":"Badge"}}
+Init: YXdhaXQgcXVlcnkoIkNSRUFURSIsICJiYWRnZXMiLCAiKGlkIFZBUkNIQVIoMjU2KSBQUklNQVJZIEtFWSwgIiArDQogICAgImVudGl0eSBWQVJDSEFSKDM1KSBOT1QgTlVMTCBSRUZFUkVOQ0VTIGVudGl0aWVzKGVudGl0eSksIGpzb24gSlNPTiBOT1QgTlVMTCwgZGF0YSBURVhUKTsiLCBbXSk7
+Code: bGV0IGJhZGdlRGF0YTsNCmxldCBiYWRnZUpzb24gPSBKU09OLnBhcnNlKHBheWxvYWQuYmFkZ2UpOw0KLy9TaWduZWQgYmFkZ2UNCmlmIChiYWRnZUpzb24gPT09IHVuZGVmaW5lZCB8fCB0eXBlb2YgYmFkZ2VKc29uLnBheWxvYWQgPT09ICJzdHJpbmciKSB7DQogICAgbGV0IGJhZGdlOw0KICAgIGlmIChiYWRnZUpzb24gPT09IHVuZGVmaW5lZCkgew0KICAgICAgICAvL0lmIGl0IGlzIGluIGNvbXBhY3QgandzIHNlcmlhbGl6YXRpb24gZm9ybWF0IChiYXNlNjR1cmxBbGdvcml0aG0uYmFzZTY0dXJsQmFkZ2UuYmFzZTY0dXJsU2lnbmF0dXJlKQ0KICAgICAgICBiYWRnZURhdGEgPSBwYXlsb2FkLmJhZGdlOw0KICAgICAgICBiYWRnZSA9IGJhZGdlRGF0YS5zcGxpdCgiLiIpWzFdOw0KICAgICAgICBpZiAoYmFkZ2UgPT09IHVuZGVmaW5lZCkgew0KICAgICAgICAgICAgcmV0dXJuICJTaWduZWQgYmFkZ2UgaGFzIGludmFsaWQgandzIGNvbXBhY3Qgc2VyaWFsaXphdGlvbiBmb3JtYXQuIjsNCiAgICAgICAgfQ0KICAgIH0NCiAgICBlbHNlIHsNCiAgICAgICAgLy9JZiBpdCBpcyBpbiBqc29uIHNlcmlhbGl6YXRpb24gZm9ybWF0ICh7InBheWxvYWQiOiJiYXNlNjR1cmxCYWRnZSIsIC4uLn0pDQogICAgICAgIGJhZGdlRGF0YSA9IGJhZGdlSnNvbjsNCiAgICAgICAgYmFkZ2UgPSBiYWRnZUpzb24ucGF5bG9hZDsNCiAgICB9DQogICAgLy9qd3MgdXNlcyBiYXNlNjR1cmwgaW5zdGVhZCBvZiBiYXNlNjQgZW5jb2RpbmcsIGNoYW5nZSBpdCBiYWNrLg0KICAgIGJhZGdlID0gYmFkZ2UucmVwbGFjZSgvLS9nLCAiKyIpLnJlcGxhY2UoL18vZywgIi8iKTsNCiAgICB3aGlsZSAoKGJhZGdlLmxlbmd0aCAmIDB4MykgIT09IDApIHsNCiAgICAgICAgYmFkZ2UgKz0gIj0iOw0KICAgIH0NCiAgICBpZiAoYmFkZ2Uuc2VhcmNoKC9eW1wrXC8tOUEtWmEtel0qPXswLDJ9JC8pICE9PSAwKSB7DQogICAgICAgIHJldHVybiAiU2lnbmVkIGJhZGdlIGlzIG5vdCBiYXNlNjR1cmwgZW5jb2RlZC4iOw0KICAgIH0NCiAgICAvL0V4dHJhY3QgdGhlIGpzb24gYmFkZ2UNCiAgICBiYWRnZUpzb24gPSBKU09OLnBhcnNlKEJ1ZmZlci5mcm9tKGJhZGdlLCAiYmFzZTY0IikudG9TdHJpbmcoKSk7DQp9DQppZiAodHlwZW9mIGJhZGdlSnNvbiAhPT0gIm9iamVjdCIgfHwgYmFkZ2VKc29uID09PSBudWxsKSB7DQogICAgcmV0dXJuICJCYWRnZSBpcyBpbnZhbGlkIGpzb24uIjsNCn0NCmNvbnN0IGJhZGdlSWQgPSBiYWRnZUpzb24uaWQgfHwgYmFkZ2VKc29uWyJAaWQiXTsNCmlmICh0eXBlb2YgYmFkZ2VJZCAhPT0gInN0cmluZyIgfHwgYmFkZ2VJZC5sZW5ndGggPT09IDAgfHwgYmFkZ2VJZC5sZW5ndGggPiAyNTYpIHsNCiAgICByZXR1cm4gIkJhZGdlIGlzIG1pc3Npbmcgb3IgaGFzIGludmFsaWQgaWQuIjsNCn0NCi8vQ2hlY2sgaWYgdGhlIGVudGl0eSBleGlzdHMgYW5kIGlzIG5vdCByZXZva2VkLg0KY29uc3QgZW50aXR5ID0gKGF3YWl0IHF1ZXJ5KCJTRUxFQ1QiLCAiZW50aXRpZXMiLCAiV0hFUkUgZW50aXR5ID0gJDE7IiwgW2Zyb21dKSkucm93c1swXTsNCmlmIChlbnRpdHkgPT09IHVuZGVmaW5lZCkgew0KICAgIHJldHVybiAiRW50aXR5IGRvZXMgbm90IGV4aXN0cyBvciB1c2VyIGlzIG5vdCBhbiBlbnRpdHkuIjsNCn0NCmlmIChlbnRpdHkucmV2b2tlZCAhPT0gbnVsbCkgew0KICAgIHJldHVybiAiRW50aXR5IGlzIHdpdGhkcmF3bi4iOw0KfQ0KLy9DaGVjayBpZiB0aGUgaW5zdGl0dXRpb24gaXMgbm90IHdpdGhkcmF3biAod2UgYXJlIHN1cmUgaXQgZXhpc3RzIGlmIHRoZSBlbnRpdHkgZXhpc3RzKQ0KY29uc3QgaW5zdGl0dXRpb24gPSAoYXdhaXQgcXVlcnkoIlNFTEVDVCIsICJpbnN0aXR1dGlvbnMiLCAiV0hFUkUgaW5zdGl0dXRpb24gPSAkMTsiLCBbZW50aXR5Lmluc3RpdHV0aW9uXSkpLnJvd3NbMF07DQppZiAoaW5zdGl0dXRpb24ucmV2b2tlZCAhPT0gbnVsbCkgew0KICAgIHJldHVybiAiSW5zdGl0dXRpb24gb2YgZW50aXR5IGlzIHdpdGhkcmF3bi4iOw0KfQ0KLy9DcmVhdGUgdGhlIGJhZGdlLiBOb3RlIHRoYXQgaXQgbWF5IG5vdCBiZSB2YWxpZCwgYnV0IHRoYXQgaXMgZm9yIHRoZSBjaGVja2VyIHNlcnZpY2UgdG8gcmVzb2x2ZS4NCmNvbnN0IGNyZWF0ZWQgPSBhd2FpdCBxdWVyeSgiSU5TRVJUIiwgImJhZGdlcyIsICIoaWQsIGVudGl0eSwganNvbiwgZGF0YSkgVkFMVUVTICgkMSwgJDIsICQzLCAkNCkgIiArDQogICAgIk9OIENPTkZMSUNUIE9OIENPTlNUUkFJTlQgYmFkZ2VzX3BrZXkgRE8gVVBEQVRFIFNFVCBqc29uID0gJDMsIGRhdGEgPSAkNCBXSEVSRSBiYWRnZXMuZW50aXR5ID0gJDI7IiwgW2JhZGdlSWQsIGZyb20sIEpTT04uc3RyaW5naWZ5KGJhZGdlSnNvbiksIGJhZGdlRGF0YV0pOw0KLy9JUkkgbXVzdCBiZSB1bmlxdWUgKHdlIGFsbG93IHRoZSBjcmVhdG9yIHRvIHVwZGF0ZSBpdCkNCmlmIChjcmVhdGVkLnJvd0NvdW50ID09PSAwKSB7DQogICAgcmV0dXJuICJCYWRnZSB3aXRoIHRoaXMgaWQgYWxyZWFkeSBleGlzdHMsIHVzZSBhIGRpZmZlcmVudCBpZC4iOw0KfQ0KcmV0dXJuICJPSyI7
 
 Init as text:
-await query("CREATE", "endorsebadges", "(badge VARCHAR(256) NOT NULL, "
-    + "entity VARCHAR(35) NOT NULL REFERENCES entities(entity), PRIMARY KEY (entity, badge));", []);
+await query("CREATE", "badges", "(id VARCHAR(256) PRIMARY KEY, " +
+    "entity VARCHAR(35) NOT NULL REFERENCES entities(entity), json JSON NOT NULL, data TEXT);", []);
 Code as text:
-if (payload.badge.length === 0 || payload.badge.length > 256) {
-    return "Invalid badge id.";
+let badgeData;
+let badgeJson = JSON.parse(payload.badge);
+//Signed badge
+if (badgeJson === undefined || typeof badgeJson.payload === "string") {
+    let badge;
+    if (badgeJson === undefined) {
+        //If it is in compact jws serialization format (base64urlAlgorithm.base64urlBadge.base64urlSignature)
+        badgeData = payload.badge;
+        badge = badgeData.split(".")[1];
+        if (badge === undefined) {
+            return "Signed badge has invalid jws compact serialization format.";
+        }
+    }
+    else {
+        //If it is in json serialization format ({"payload":"base64urlBadge", ...})
+        badgeData = badgeJson;
+        badge = badgeJson.payload;
+    }
+    //jws uses base64url instead of base64 encoding, change it back.
+    badge = badge.replace(/-/g, "+").replace(/_/g, "/");
+    while ((badge.length & 0x3) !== 0) {
+        badge += "=";
+    }
+    if (badge.search(/^[\+\/-9A-Za-z]*={0,2}$/) !== 0) {
+        return "Signed badge is not base64url encoded.";
+    }
+    //Extract the json badge
+    badgeJson = JSON.parse(Buffer.from(badge, "base64").toString());
 }
-//Check if the entity exists and is allowed to create/endorse badges.
-const entity = await query("SELECT", "entities", "WHERE entity = $1;", [from]);
-if (entity.rows.length === 0) {
+if (typeof badgeJson !== "object" || badgeJson === null) {
+    return "Badge is invalid json.";
+}
+const badgeId = badgeJson.id || badgeJson["@id"];
+if (typeof badgeId !== "string" || badgeId.length === 0 || badgeId.length > 256) {
+    return "Badge is missing or has invalid id.";
+}
+//Check if the entity exists and is not revoked.
+const entity = (await query("SELECT", "entities", "WHERE entity = $1;", [from])).rows[0];
+if (entity === undefined) {
     return "Entity does not exists or user is not an entity.";
 }
-if (!entity.rows[0].allowed) {
+if (entity.revoked !== null) {
     return "Entity is withdrawn.";
 }
-else {
-    //Check if the institution is not withdrawn (we are sure it exists if the entity exists)
-    const institution = await query("SELECT", "institutions", "WHERE institution = $1;", [entity.rows[0].institution]);
-    if (!institution.rows[0].allowed) {
-        return "Institution of entity is withdrawn.";
-    }
+//Check if the institution is not withdrawn (we are sure it exists if the entity exists)
+const institution = (await query("SELECT", "institutions", "WHERE institution = $1;", [entity.institution])).rows[0];
+if (institution.revoked !== null) {
+    return "Institution of entity is withdrawn.";
 }
-//Create and endorse the badge
-await query("INSERT", "endorsebadges", "(badge, entity) VALUES ($1, $2) ON CONFLICT DO NOTHING;", [payload.badge, from]);
+//Create the badge. Note that it may not be valid, but that is for the checker service to resolve.
+const created = await query("INSERT", "badges", "(id, entity, json, data) VALUES ($1, $2, $3, $4) " +
+    "ON CONFLICT ON CONSTRAINT badges_pkey DO UPDATE SET json = $3, data = $4 WHERE badges.entity = $2;", [badgeId, from, JSON.stringify(badgeJson), badgeData]);
+//IRI must be unique (we allow the creator to update it)
+if (created.rowCount === 0) {
+    return "Badge with this id already exists, use a different id.";
+}
 return "OK";
